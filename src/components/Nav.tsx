@@ -36,13 +36,13 @@ export function Nav() {
             Portfólio
           </Link>
           <Link
-            href="#servicos"
+            href="/#servicos"
             className="text-(--color-cream-dim) transition-colors hover:text-(--color-cream) focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--color-amber)"
           >
             Serviços
           </Link>
           <Link
-            href="#sobre"
+            href="/#sobre"
             className="text-(--color-cream-dim) transition-colors hover:text-(--color-cream) focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-(--color-amber)"
           >
             Sobre
@@ -101,7 +101,7 @@ export function Nav() {
             </li>
             <li>
               <Link
-                href="#servicos"
+                href="/#servicos"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block py-2 text-(--color-cream) transition-colors hover:text-(--color-amber) focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-amber)"
               >
@@ -110,7 +110,7 @@ export function Nav() {
             </li>
             <li>
               <Link
-                href="#sobre"
+                href="/#sobre"
                 onClick={() => setMobileMenuOpen(false)}
                 className="block py-2 text-(--color-cream) transition-colors hover:text-(--color-amber) focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--color-amber)"
               >
