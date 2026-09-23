@@ -7,6 +7,7 @@ import { PhotoFrame } from '@/components/PhotoFrame';
 import { WhatsAppCTA } from '@/components/WhatsAppCTA';
 import { Footer } from '@/components/Footer';
 import { getCaseBySlug, getCases } from '@/lib/content';
+import { MAX_PAGE_TITLE_LENGTH, META_DESCRIPTION_MAX_LENGTH, SITE_NAME, SITE_URL, truncateText } from '@/lib/seo';
 
 type CasePageProps = {
   params: Promise<{ slug: string }>;
@@ -24,11 +25,31 @@ export async function generateMetadata({ params }: CasePageProps): Promise<Metad
     return {};
   }
 
+  const title = truncateText(caseItem.titulo, MAX_PAGE_TITLE_LENGTH);
+  const description = truncateText(
+    caseItem.desafio || caseItem.titulo,
+    META_DESCRIPTION_MAX_LENGTH
+  );
+  const canonicalPath = `/portfolio/${caseItem.slug}`;
+
   return {
-    title: `${caseItem.titulo} — ${caseItem.cliente}`,
-    description: caseItem.desafio?.slice(0, 155) || caseItem.titulo,
+    title,
+    description,
     alternates: {
-      canonical: `/portfolio/${caseItem.slug}`,
+      canonical: canonicalPath,
+    },
+    openGraph: {
+      type: 'website',
+      locale: 'pt_BR',
+      url: `${SITE_URL}${canonicalPath}`,
+      siteName: SITE_NAME,
+      title: `${title} | ${SITE_NAME}`,
+      description,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${title} | ${SITE_NAME}`,
+      description,
     },
   };
 }

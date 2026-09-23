@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, Chivo, DM_Mono } from "next/font/google";
 import { FilmGrain } from "@/components/FilmGrain";
+import { SITE_URL, SITE_NAME } from "@/lib/seo";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -24,31 +25,32 @@ const dmMono = DM_Mono({
   display: "swap",
 });
 
+const HOME_TITLE = "Evis Produtora — Audiovisual que Dá Resultado";
+const HOME_DESCRIPTION =
+  "Vídeos institucionais e ensaios corporativos em Belém/PA e todo o Brasil. Produção audiovisual estratégica para empresas que dá resultado, não vaidade.";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://evisprodutora.com.br"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "Evis Produtora — Audiovisual que Dá Resultado",
-    template: "%s | Evis Produtora",
+    default: HOME_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "Vídeos institucionais e ensaios corporativos em Belém/PA e todo o Brasil. Produção audiovisual estratégica para empresas que dá resultado, não vaidade.",
+  description: HOME_DESCRIPTION,
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    url: "https://evisprodutora.com.br",
-    siteName: "Evis Produtora",
-    title: "Evis Produtora — Audiovisual que Dá Resultado",
-    description:
-      "Vídeos institucionais e ensaios corporativos em Belém/PA e todo o Brasil. Produção audiovisual estratégica para empresas que dá resultado, não vaidade.",
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Evis Produtora — Audiovisual que Dá Resultado",
-    description:
-      "Vídeos institucionais e ensaios corporativos em Belém/PA e todo o Brasil. Produção audiovisual estratégica para empresas que dá resultado, não vaidade.",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
   },
 };
 

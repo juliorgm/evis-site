@@ -5,13 +5,30 @@ import { Timecode } from '@/components/Timecode';
 import { PhotoFrame } from '@/components/PhotoFrame';
 import { Footer } from '@/components/Footer';
 import { getCases } from '@/lib/content';
+import { SITE_URL, SITE_NAME } from '@/lib/seo';
+
+const PORTFOLIO_TITLE = 'Portfólio';
+const PORTFOLIO_DESCRIPTION =
+  'Vídeos institucionais, branding e fotografia corporativa produzidos pela Evis Produtora para empresas de todo o Brasil, de Belém para o país inteiro.';
 
 export const metadata: Metadata = {
-  title: 'Portfólio',
-  description:
-    'Vídeos institucionais, branding e fotografia corporativa produzidos pela Evis Produtora para empresas de todo o Brasil.',
+  title: PORTFOLIO_TITLE,
+  description: PORTFOLIO_DESCRIPTION,
   alternates: {
     canonical: '/portfolio',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    url: `${SITE_URL}/portfolio`,
+    siteName: SITE_NAME,
+    title: `${PORTFOLIO_TITLE} | ${SITE_NAME}`,
+    description: PORTFOLIO_DESCRIPTION,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: `${PORTFOLIO_TITLE} | ${SITE_NAME}`,
+    description: PORTFOLIO_DESCRIPTION,
   },
 };
 
