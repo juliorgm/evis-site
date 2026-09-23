@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import type { CSSProperties } from 'react';
 import fs from 'node:fs';
 import path from 'node:path';
 import { getCaseBySlug, getCases } from '@/lib/content';
@@ -37,22 +38,27 @@ export default async function OpengraphImage({
   const cliente = caseItem?.cliente ?? 'Evis Produtora';
   const titulo = caseItem?.titulo ?? '';
 
+  const containerStyle: CSSProperties = {
+    width: '100%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
+    backgroundColor: '#170A00',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    position: 'relative',
+  };
+
+  // satori (motor do ImageResponse) nao aceita "undefined" como valor de
+  // propriedade CSS — precisa nem existir a chave quando nao ha capa.
+  if (capaDataUrl) {
+    containerStyle.backgroundImage = `url(${capaDataUrl})`;
+  }
+
   return new ImageResponse(
     (
-      <div
-        style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'flex-end',
-          backgroundColor: '#170A00',
-          backgroundImage: capaDataUrl ? `url(${capaDataUrl})` : undefined,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          position: 'relative',
-        }}
-      >
+      <div style={containerStyle}>
         <div
           style={{
             position: 'absolute',
