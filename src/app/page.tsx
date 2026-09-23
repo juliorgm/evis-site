@@ -26,8 +26,6 @@ export default function HomePage() {
       <main className="flex flex-col">
         {/* Hero */}
         <section className="mx-auto flex w-full max-w-[1240px] flex-col gap-10 px-6 pt-14 pb-16 sm:px-14 sm:pt-20 sm:pb-24">
-          <Timecode numero="00:00" rotulo="Fundação" />
-
           <div className="flex flex-col gap-6">
             <h1 className="max-w-[16ch] font-(--font-display) text-[40px] font-extrabold leading-[0.96] tracking-[-0.035em] text-(--color-cream) sm:text-[92px]">
               Produção Audiovisual que dá{' '}
@@ -68,7 +66,7 @@ export default function HomePage() {
         {/* Logos */}
         {clientes.length > 0 && (
           <section className="mx-auto w-full max-w-[1240px] px-6 pb-16 sm:px-14 sm:pb-24">
-            <Timecode numero="00:01" rotulo="Clientes" as="h2" className="mb-8 sm:mb-10" />
+            <Timecode numero="00:00" rotulo="Clientes" as="h2" className="mb-8 sm:mb-10" />
             <LogoGrid clientes={clientes} />
           </section>
         )}
@@ -78,7 +76,7 @@ export default function HomePage() {
           id="servicos"
           className="mx-auto w-full max-w-[1240px] px-6 pb-16 sm:px-14 sm:pb-24"
         >
-          <Timecode numero="00:02" rotulo="Serviços" className="mb-8 sm:mb-10" />
+          <Timecode numero="00:01" rotulo="Serviços" className="mb-8 sm:mb-10" />
 
           <h2 className="mb-10 max-w-[14ch] font-(--font-display) text-3xl font-bold leading-[1.02] tracking-[-0.03em] text-(--color-cream) sm:mb-14 sm:text-[54px]">
             Duas frentes, um objetivo.
@@ -89,7 +87,7 @@ export default function HomePage() {
 
         {/* Números */}
         <section className="mx-auto w-full max-w-[1240px] px-6 pb-16 sm:px-14 sm:pb-24">
-          <Timecode numero="00:03" rotulo="Números" as="h2" className="mb-8 sm:mb-10" />
+          <Timecode numero="00:02" rotulo="Números" as="h2" className="mb-8 sm:mb-10" />
           <Stats stats={stats} />
         </section>
 
@@ -98,7 +96,7 @@ export default function HomePage() {
           id="sobre"
           className="mx-auto w-full max-w-[1240px] px-6 pb-16 sm:px-14 sm:pb-24"
         >
-          <Timecode numero="00:04" rotulo="Sobre" as="h2" className="mb-8 sm:mb-10" />
+          <Timecode numero="00:03" rotulo="Sobre" as="h2" className="mb-8 sm:mb-10" />
 
           <p className="max-w-[62ch] font-(--font-body) text-base leading-[1.55] text-(--color-cream-dim) sm:text-lg">
             A Evis Produtora nasceu em Belém e já entregou mais de 20 filmes completos
