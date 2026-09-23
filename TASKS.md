@@ -123,21 +123,21 @@ Vídeo no topo, ficha (entrega/prazo/formato), "O desafio", "O que fizemos", sti
 
 ---
 
-## Sprint 4 — SEO
+## Sprint 4 — SEO ✅
 
-### T-040 · Metadata por rota
+### T-040 · Metadata por rota ✅
 `title` único ≤60, `description` 120–158, `openGraph`, canônica.
 **Aceite:** nenhuma página com title duplicado.
 
-### T-041 · Sitemap e robots
+### T-041 · Sitemap e robots ✅
 `app/sitemap.ts` e `app/robots.ts` gerados a partir de `getCases()`.
 **Aceite:** sitemap lista todas as rotas estáticas; robots aponta para ele.
 
-### T-042 · JSON-LD
+### T-042 · JSON-LD ✅
 `LocalBusiness` na home, `VideoObject` nos cases com vídeo, `BreadcrumbList` nas internas.
 **Aceite:** Rich Results Test do Google sem erro.
 
-### T-043 · Semântica e acessibilidade
+### T-043 · Semântica e acessibilidade ✅
 Um `<h1>` por página, hierarquia sem pulo, `alt` em toda imagem, foco visível.
 **Aceite:** Lighthouse Acessibilidade e SEO = 100; axe sem violação crítica.
 
