@@ -8,90 +8,90 @@
 
 ---
 
-## Sprint 0 — Fundação
+## Sprint 0 — Fundação ✅
 
-### T-001 · Inicializar o projeto
+### T-001 · Inicializar o projeto ✅
 `pnpm create next-app@latest` — Next **16 LTS**, App Router, TypeScript strict, ESLint, Tailwind v4, `src/`, alias `@/*`.
 
 Antes de configurar qualquer coisa, ler a doc do Next 16. Houve mudanças de API desde o 15 que a spec não cobre.
 
 **Aceite:** `pnpm dev` sobe sem erro; `pnpm build` passa; `tsconfig` com `"strict": true`; `next` no `package.json` em `^16`.
 
-### T-002 · Repositório e Vercel
+### T-002 · Repositório e Vercel ✅
 Repo no GitHub, `main` protegida. Projeto na Vercel conectado. Preview por PR ativo.
 **Aceite:** um PR de teste gera URL de preview funcionando.
 
-### T-003 · Tokens da marca
+### T-003 · Tokens da marca ✅
 Declarar em `src/app/globals.css`, bloco `@theme`, todos os tokens da seção 2 do manual visual.
 **Aceite:** `--color-ground`, `--color-brand`, `--color-cream`, `--color-amber`, `--color-muted`, `--color-line`, `--color-cream-dim`, `--color-surface`, `--color-surface-2`, `--color-amber-dim` existem e estão em uso. Nenhuma cor literal em componente.
 
-### T-004 · Fontes
+### T-004 · Fontes ✅
 `next/font/google`: Bricolage Grotesque (500/700/800), Chivo (400/500), DM Mono (500). Expor como variáveis CSS, aplicar no `<body>`.
 **Aceite:** nenhum request para `fonts.googleapis.com` na aba Network. `font-display: swap`. CLS de fonte = 0.
 
-### T-005 · Layout raiz
+### T-005 · Layout raiz ✅
 `src/app/layout.tsx` com `lang="pt-BR"`, `metadataBase`, metadata padrão, grão de filme como overlay global.
 **Aceite:** `<html lang="pt-BR">` no HTML servido; overlay com `pointer-events: none`.
 
 ---
 
-## Sprint 1 — Camada de conteúdo
+## Sprint 1 — Camada de conteúdo ✅
 
-### T-010 · Tipos
+### T-010 · Tipos ✅
 `src/types/content.ts` com `Case`, `Servico`, `Cliente`, `Depoimento` exatamente como SPEC §3.
 **Aceite:** tipos exportados, sem `any`.
 
-### T-011 · Leitor de conteúdo
+### T-011 · Leitor de conteúdo ✅
 `src/lib/content.ts`: `getCases()`, `getCaseBySlug()`, `getCasesDestaque()`, `getClientes()`, `getServicos()`. Lê MDX de `content/cases/`, valida o frontmatter com Zod.
 **Aceite:** frontmatter inválido quebra o **build**, não o runtime. Esta é a única camada que conhece a origem dos dados — trocá-la por um CMS não pode exigir mudar componente algum (ADR-02).
 
-### T-012 · Conteúdo de exemplo
+### T-012 · Conteúdo de exemplo ✅
 Três cases fictícios **claramente marcados** (`cliente: "[EXEMPLO] ..."`) para desenvolver antes do material real chegar.
 **Aceite:** removidos antes do deploy de produção. Criar issue de lembrete.
 
-### T-013 · Serviços e clientes
+### T-013 · Serviços e clientes ✅
 `content/servicos.ts` com a taxonomia de SPEC §4, literal. `content/clientes.ts` com o campo `autorizado`.
 **Aceite:** `getClientes()` nunca retorna item com `autorizado: false` (RN-04).
 
 ---
 
-## Sprint 2 — Componentes
+## Sprint 2 — Componentes ✅
 
 Todos mobile-first. Nenhum texto de conteúdo literal dentro de componente.
 
-### T-020 · `<Nav>`
+### T-020 · `<Nav>` ✅
 Logo, links (Portfólio/Serviços/Sobre), CTA de WhatsApp. Mobile: logo + CTA.
 **Aceite:** CTA visível em 390px; alvo ≥44px; navegável por teclado com foco visível.
 
-### T-021 · `<Timecode>`
+### T-021 · `<Timecode>` ✅
 Marcador de seção: `00:0N` âmbar + rótulo + hairline.
 **Aceite:** props `numero` e `rotulo`; numeração sequencial na página.
 
-### T-022 · `<VideoFrame>`
+### T-022 · `<VideoFrame>` ✅
 Facade de player: capa + botão de play; só monta o iframe do YouTube no clique (ADR-03).
 **Aceite:** nenhum request para youtube.com antes do clique; dispara `play_video` no GA4; `aria-label` no botão.
 
-### T-023 · `<PhotoFrame>`
+### T-023 · `<PhotoFrame>` ✅
 Mesma base visual, marcador de cruz. **Sem play.**
 **Aceite:** nenhum ícone de play no DOM.
 
-### T-024 · `<ServicoLista>`
+### T-024 · `<ServicoLista>` ✅
 Famílias numeradas com itens separados por hairline e traço âmbar. Vídeo com peso maior que Fotografia.
 **Aceite:** renderiza a partir de `getServicos()`; hover cresce o traço; respeita `prefers-reduced-motion`.
 
-### T-025 · `<LogoGrid>`
+### T-025 · `<LogoGrid>` ✅
 Grade de logos. 3 colunas no mobile, 6 no desktop.
 **Aceite:** só logos autorizados; `alt` com o nome do cliente.
 
-### T-026 · `<Stats>`
+### T-026 · `<Stats>` ✅
 Três números. Valores vêm de `content/stats.ts`, nunca literais (RN-06).
 **Aceite:** nenhum número hardcoded em JSX.
 
-### T-027 · `<WhatsAppCTA>`
+### T-027 · `<WhatsAppCTA>` ✅
 Botão reutilizável. Prop obrigatória `origem`. Monta o link de RN-02 e dispara `clique_whatsapp`.
 **Aceite:** `origem` é obrigatória no tipo — esquecer não compila. Texto `--color-ground` sobre âmbar.
 
-### T-028 · `<Footer>`
+### T-028 · `<Footer>` ✅
 Logo, cidade, Instagram, telefone.
 **Aceite:** links reais, sem `href="#"`.
 
