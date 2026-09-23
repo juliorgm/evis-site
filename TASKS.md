@@ -97,9 +97,9 @@ Logo, cidade, Instagram, telefone.
 
 ---
 
-## Sprint 3 — Páginas
+## Sprint 3 — Páginas ✅
 
-### T-030 · Home
+### T-030 · Home ✅
 Monta na ordem: Nav · Hero · Logos · Serviços · Números · Sobre · CTA · Footer.
 
 Copy aprovada, literal:
@@ -109,15 +109,15 @@ Copy aprovada, literal:
 
 **Aceite:** confere com `evis-home-v2.png`; Lighthouse mobile ≥90; sem scroll horizontal em 390px.
 
-### T-031 · `/portfolio`
+### T-031 · `/portfolio` ✅
 Grade de cases, capa + cliente + categoria. Vídeo e foto juntos.
 **Aceite:** SSG; link para cada case.
 
-### T-032 · `/portfolio/[slug]`
+### T-032 · `/portfolio/[slug]` ✅
 Vídeo no topo, ficha (entrega/prazo/formato), "O desafio", "O que fizemos", stills, CTA.
 **Aceite:** `generateStaticParams`; 404 para slug inexistente; CTA com `origem="case-<slug>"`.
 
-### T-033 · OG image por case
+### T-033 · OG image por case ✅
 `opengraph-image.tsx` com a capa e o nome do cliente.
 **Aceite:** preview correto no validador do WhatsApp e do LinkedIn.
 
