@@ -68,7 +68,7 @@ export default function HomePage() {
         {/* Logos */}
         {clientes.length > 0 && (
           <section className="mx-auto w-full max-w-[1240px] px-6 pb-16 sm:px-14 sm:pb-24">
-            <Timecode numero="00:01" rotulo="Clientes" className="mb-8 sm:mb-10" />
+            <Timecode numero="00:01" rotulo="Clientes" as="h2" className="mb-8 sm:mb-10" />
             <LogoGrid clientes={clientes} />
           </section>
         )}
@@ -89,7 +89,7 @@ export default function HomePage() {
 
         {/* Números */}
         <section className="mx-auto w-full max-w-[1240px] px-6 pb-16 sm:px-14 sm:pb-24">
-          <Timecode numero="00:03" rotulo="Números" className="mb-8 sm:mb-10" />
+          <Timecode numero="00:03" rotulo="Números" as="h2" className="mb-8 sm:mb-10" />
           <Stats stats={stats} />
         </section>
 
@@ -98,7 +98,7 @@ export default function HomePage() {
           id="sobre"
           className="mx-auto w-full max-w-[1240px] px-6 pb-16 sm:px-14 sm:pb-24"
         >
-          <Timecode numero="00:04" rotulo="Sobre" className="mb-8 sm:mb-10" />
+          <Timecode numero="00:04" rotulo="Sobre" as="h2" className="mb-8 sm:mb-10" />
 
           <p className="max-w-[62ch] font-(--font-body) text-base leading-[1.55] text-(--color-cream-dim) sm:text-lg">
             A Evis Produtora nasceu em Belém e já entregou mais de 20 filmes completos

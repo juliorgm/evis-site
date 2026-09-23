@@ -143,7 +143,7 @@ export default async function CasePage({ params }: CasePageProps) {
         {/* O desafio */}
         {caseItem.desafio && (
           <section className="flex flex-col gap-4">
-            <Timecode numero="00:01" rotulo="O desafio" />
+            <Timecode numero="00:01" rotulo="O desafio" as="h2" />
             <p className="max-w-[62ch] whitespace-pre-line font-(--font-body) text-base leading-[1.55] text-(--color-cream-dim) sm:text-lg">
               {caseItem.desafio}
             </p>
@@ -153,7 +153,7 @@ export default async function CasePage({ params }: CasePageProps) {
         {/* O que fizemos */}
         {caseItem.oQueFizemos && (
           <section className="flex flex-col gap-4">
-            <Timecode numero="00:02" rotulo="O que fizemos" />
+            <Timecode numero="00:02" rotulo="O que fizemos" as="h2" />
             <p className="max-w-[62ch] whitespace-pre-line font-(--font-body) text-base leading-[1.55] text-(--color-cream-dim) sm:text-lg">
               {caseItem.oQueFizemos}
             </p>
@@ -163,7 +163,7 @@ export default async function CasePage({ params }: CasePageProps) {
         {/* Stills */}
         {caseItem.stills.length > 0 && (
           <section className="flex flex-col gap-6">
-            <Timecode numero="00:03" rotulo="Imagens" />
+            <Timecode numero="00:03" rotulo="Imagens" as="h2" />
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
               {caseItem.stills.map((still, index) => (
                 <PhotoFrame
