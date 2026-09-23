@@ -6,6 +6,8 @@ import { PhotoFrame } from '@/components/PhotoFrame';
 import { Footer } from '@/components/Footer';
 import { getCases } from '@/lib/content';
 import { SITE_URL, SITE_NAME } from '@/lib/seo';
+import { JsonLd } from '@/components/JsonLd';
+import { getBreadcrumbJsonLd } from '@/lib/jsonld';
 
 const PORTFOLIO_TITLE = 'Portfólio';
 const PORTFOLIO_DESCRIPTION =
@@ -35,8 +37,14 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   const cases = getCases();
 
+  const breadcrumb = getBreadcrumbJsonLd([
+    { nome: 'Início', path: '/' },
+    { nome: 'Portfólio', path: '/portfolio' },
+  ]);
+
   return (
     <>
+      <JsonLd data={breadcrumb} />
       <Nav />
 
       <main className="mx-auto flex w-full max-w-[1240px] flex-col gap-10 px-6 py-14 sm:px-14 sm:py-20">

@@ -8,6 +8,8 @@ import { ServicoLista } from '@/components/ServicoLista';
 import { Stats } from '@/components/Stats';
 import { Footer } from '@/components/Footer';
 import { getCasesDestaque, getClientes, getServicos, getStats } from '@/lib/content';
+import { JsonLd } from '@/components/JsonLd';
+import { getLocalBusinessJsonLd } from '@/lib/jsonld';
 
 export default function HomePage() {
   const casesDestaque = getCasesDestaque();
@@ -18,6 +20,7 @@ export default function HomePage() {
 
   return (
     <>
+      <JsonLd data={getLocalBusinessJsonLd()} />
       <Nav />
 
       <main className="flex flex-col">

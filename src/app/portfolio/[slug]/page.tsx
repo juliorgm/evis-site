@@ -8,6 +8,8 @@ import { WhatsAppCTA } from '@/components/WhatsAppCTA';
 import { Footer } from '@/components/Footer';
 import { getCaseBySlug, getCases } from '@/lib/content';
 import { MAX_PAGE_TITLE_LENGTH, META_DESCRIPTION_MAX_LENGTH, SITE_NAME, SITE_URL, truncateText } from '@/lib/seo';
+import { JsonLd } from '@/components/JsonLd';
+import { getBreadcrumbJsonLd, getVideoObjectJsonLd } from '@/lib/jsonld';
 
 type CasePageProps = {
   params: Promise<{ slug: string }>;
@@ -68,9 +70,17 @@ export default async function CasePage({ params }: CasePageProps) {
   }
 
   const origem = `case-${caseItem.slug}`;
+  const videoJsonLd = getVideoObjectJsonLd(caseItem);
+  const breadcrumbJsonLd = getBreadcrumbJsonLd([
+    { nome: 'Início', path: '/' },
+    { nome: 'Portfólio', path: '/portfolio' },
+    { nome: caseItem.titulo, path: `/portfolio/${caseItem.slug}` },
+  ]);
 
   return (
     <>
+      <JsonLd data={breadcrumbJsonLd} />
+      {videoJsonLd && <JsonLd data={videoJsonLd} />}
       <Nav />
 
       <main className="mx-auto flex w-full max-w-[1240px] flex-col gap-12 px-6 py-14 sm:px-14 sm:py-20">
